@@ -124,14 +124,14 @@ internal class UserServices
             CommandType = CommandType.StoredProcedure
         };
 
-        // Input parameters
+    
         cmd.Parameters.AddWithValue("@Username", username);
         cmd.Parameters.AddWithValue("@Password", password);
         cmd.Parameters.AddWithValue("@Email", email);
 
         conn.Open();
 
-        // Get the new user ID
+ 
         object result = cmd.ExecuteScalar();
 
         if (result != null)
@@ -225,12 +225,12 @@ internal class UserServices
             CommandType = CommandType.StoredProcedure
         };
 
-        // Input parameter
+ 
         cmd.Parameters.AddWithValue("@UserId", userId);
 
         conn.Open();
 
-        // Get rows affected
+
         object result = cmd.ExecuteScalar();
         int rowsAffected = result != null ? Convert.ToInt32(result) : 0;
 
@@ -262,7 +262,7 @@ internal class UserServices
             CommandType = CommandType.StoredProcedure
         };
 
-        // Input parameters
+ 
         cmd.Parameters.AddWithValue("@UserId", userId);
         cmd.Parameters.AddWithValue("@Password", password);
 
@@ -279,7 +279,7 @@ internal class UserServices
 
         Console.WriteLine("Login successful!");
 
-        // Return 999 for admin, userId for regular user
+      
         return (int)role == 1 ? 999 : userId;
     }
 }

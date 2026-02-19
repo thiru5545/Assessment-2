@@ -305,10 +305,9 @@ internal class RequestServices
             CommandType = CommandType.StoredProcedure
         };
 
-        // Input parameter
         cmd.Parameters.AddWithValue("@RequestId", requestId);
 
-        // Output parameters
+
         SqlParameter successParam = new SqlParameter("@Success", SqlDbType.Bit)
         {
             Direction = ParameterDirection.Output
